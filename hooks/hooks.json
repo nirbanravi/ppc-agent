@@ -1,0 +1,16 @@
+{
+  "description": "SpendSentry safety guard: blocks ad-account writes unless the exact action was gated and approved by the user. Active whenever the plugin is enabled.",
+  "hooks": {
+    "PreToolUse": [
+      {"matcher": "^(mcp__.*|Bash|Write|Edit|MultiEdit|NotebookEdit)$",
+       "hooks": [{"type": "command", "command": "python3", "args": ["${CLAUDE_PLUGIN_ROOT}/skills/ads/hooks/guard.py"], "onFailure": "block"}]}
+    ],
+    "PostToolUse": [
+      {"matcher": "^mcp__.*",
+       "hooks": [{"type": "command", "command": "python3", "args": ["${CLAUDE_PLUGIN_ROOT}/skills/ads/hooks/guard.py"]}]}
+    ],
+    "UserPromptSubmit": [
+      {"hooks": [{"type": "command", "command": "python3", "args": ["${CLAUDE_PLUGIN_ROOT}/skills/ads/hooks/approve.py"]}]}
+    ]
+  }
+}

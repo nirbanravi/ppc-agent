@@ -1,0 +1,13 @@
+# SpendSentry
+
+> SpendSentry is an open-source AI PPC agent for Claude Code. It audits ad accounts, checks budget pacing, plans budgets, designs experiments and writes client reports for Google Ads, YouTube, Meta Ads, LinkedIn Ads, TikTok Ads, Microsoft Advertising, Amazon Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Apple Ads and X Ads. It never changes an ad account unless the user approves the exact change. MIT-licensed.
+
+## Docs
+- [README](README.md): what it does, install, commands, limits
+- [Safety model](skills/ads/references/safety-model.md): how approval-gated changes are enforced
+- [Evidence and confidence](skills/ads/references/evidence-and-confidence.md): how findings are scored
+- [Data intake](skills/ads/references/data-intake.md): which exports each platform needs
+- [Testing](docs/TESTING.md)
+
+## Install
+- `/plugin marketplace add nirbanravi/ppc-agent` then `/plugin install spendsentry@spendsentry`

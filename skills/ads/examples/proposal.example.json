@@ -1,0 +1,60 @@
+{
+    "actions": [
+        {
+            "platform": "google",
+            "account_id": "123-456-7890",
+            "operation": "update_budget",
+            "entity_type": "campaign",
+            "entity": "Competitor - Broad",
+            "entity_id": "2233445566",
+            "before": {
+                "daily_budget": 6000
+            },
+            "after": {
+                "daily_budget": 4500
+            },
+            "rationale": "Zero conversions on 1.66L spend",
+            "evidence_finding_ids": [
+                "TRK002-1"
+            ],
+            "risk": "low",
+            "rollback": {
+                "daily_budget": 6000
+            },
+            "executor": {
+                "tool": "mcp__google-ads-write__update_campaign_budget",
+                "input": {
+                    "customer_id": "1234567890",
+                    "campaign_id": "2233445566",
+                    "amount_micros": 4500000000
+                }
+            }
+        },
+        {
+            "platform": "google",
+            "account_id": "123-456-7890",
+            "operation": "add_negative",
+            "entity_type": "negative_keyword",
+            "entity": "Generic - Phrase",
+            "after": {
+                "keywords": [
+                    "free running shoes giveaway",
+                    "running shoes repair near me",
+                    "shoe size chart"
+                ],
+                "match_type": "PHRASE"
+            },
+            "rationale": "Non-converting irrelevant terms",
+            "evidence_finding_ids": [
+                "ST001-1"
+            ],
+            "risk": "low",
+            "rollback": {
+                "remove_negatives": true
+            },
+            "manual_steps": [
+                "Google Ads > Generic - Phrase > Keywords > Negative keywords > add the 3 terms as phrase match"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,154 @@
+{
+  "registry_version": "2026-10-11",
+  "note": "Facts here were looked up on the verified_at date. Anything past stale_after_days must be re-checked online before it is relied on. status=unverified means it was NOT confirmed in a primary or reputable source and must be checked before use.",
+  "platforms": {
+    "google": {
+      "name": "Google Ads",
+      "api": "Google Ads API",
+      "current_version": "v25 line (v25.0 Jul 2026, v25.1 Aug 2026, v25.2 Sep 2026); v26 projected Oct 2026",
+      "cadence": "Monthly releases since Jan 2026; 4 majors/yr; each major supported ~1 year",
+      "deadlines": [
+        {"what": "v22 sunset", "when": "October 2026 (tentative month)"},
+        {"what": "v26 projected release / sunset", "when": "Oct 2026 / Nov 2027"}
+      ],
+      "read_only_access": "Official Google Ads MCP server (googleads/google-ads-mcp) is read-only; GAQL search + account listing",
+      "sources": [
+        "https://developers.google.com/google-ads/api/docs/sunset-dates",
+        "https://ads-developers.googleblog.com/2025/09/more-frequent-releases-coming-for.html",
+        "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server"
+      ],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 30,
+      "status": "verified"
+    },
+    "youtube": {
+      "name": "YouTube (via Google Ads)",
+      "api": "Google Ads API (Video, Demand Gen campaigns)",
+      "current_version": "Same as google",
+      "read_only_access": "Same as google",
+      "sources": ["https://developers.google.com/google-ads/api/docs/sunset-dates"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 30,
+      "status": "verified"
+    },
+    "meta": {
+      "name": "Meta (Facebook/Instagram)",
+      "api": "Marketing API",
+      "current_version": "v26.0 (released 29 Jul 2026, with version auto-upgrade)",
+      "cadence": "Marketing API versions retire on a shorter clock than Graph API versions with the same number",
+      "deadlines": [
+        {"what": "Marketing API v24.0 expiry", "when": "2026-10-06"},
+        {"what": "Several v26.0 deprecations extend to all supported versions", "when": "2026-10-27"}
+      ],
+      "known_changes": [
+        "v26: Instagram Explore feed placement removed for new campaign setup",
+        "Aug 2026: some reporting breakdowns switched off for accounts that did not opt in (verify which before relying on breakdown data)"
+      ],
+      "read_only_access": "Official Meta Ads MCP (hosted, mcp.facebook.com/ads) is READ-WRITE — treat every non-read tool as gated",
+      "sources": [
+        "https://developers.facebook.com/docs/marketing-api/marketing-api-changelog/versions",
+        "https://ppc.land/meta-blocks-47-commerce-endpoints-as-graph-api-v26-0-lands-today/",
+        "https://admakeai.com/blog/meta-ads-updates-august-2026"
+      ],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 21,
+      "status": "verified-secondary",
+      "caveat": "Version dates partly from secondary sources; confirm on the official changelog before quoting to a client."
+    },
+    "linkedin": {
+      "name": "LinkedIn Ads",
+      "api": "LinkedIn Marketing API (versioned, Linkedin-Version: YYYYMM header required; latest is not applied by default)",
+      "current_version": "202608 was latest seen in Aug 2026; monthly releases, each supported >= 1 year",
+      "sources": [
+        "https://learn.microsoft.com/linkedin/marketing/versioning",
+        "https://learn.microsoft.com/linkedin/marketing/integrations/recent-changes"
+      ],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 30,
+      "status": "verified",
+      "caveat": "A newer monthly version (202609/202610) may exist; check recent-changes."
+    },
+    "tiktok": {
+      "name": "TikTok Ads",
+      "api": "TikTok API for Business (Marketing API)",
+      "current_version": "v1.3 (changes ship continuously inside v1.3)",
+      "sources": ["https://business-api.tiktok.com/portal/docs?id=1740029165513730"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 45,
+      "status": "verified-secondary"
+    },
+    "microsoft": {
+      "name": "Microsoft Advertising",
+      "api": "Bing Ads API v13 (SOAP -> REST transition)",
+      "current_version": "v13; from 2026-10-01 new features ship only via REST",
+      "deadlines": [
+        {"what": "New features REST-only", "when": "2026-10-01"},
+        {"what": "SOAP API full deprecation", "when": "2027-01-31"}
+      ],
+      "sources": ["https://learn.microsoft.com/en-us/advertising/guides/migrate-to-rest"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 45,
+      "status": "verified"
+    },
+    "amazon": {
+      "name": "Amazon Ads",
+      "api": "Amazon Ads API",
+      "current_version": "Not verified this session",
+      "read_only_access": "Official Amazon Ads MCP Server in open beta since 2026-02-02 for API partners; it CAN create/update/delete — treat writes as gated",
+      "sources": ["https://advertising.amazon.com/library/news/amazon-ads-mcp-server-open-beta"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 30,
+      "status": "partially-verified"
+    },
+    "reddit": {
+      "name": "Reddit Ads",
+      "api": "Reddit Ads API v3 (https://ads-api.reddit.com/api/v3/...)",
+      "current_version": "v3; Reporting API v2 retired 2025-08-30; accounts moved to Business Manager",
+      "sources": ["https://unified.to/blog/how_to_get_your_reddit_ads_api_key"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 60,
+      "status": "verified-secondary"
+    },
+    "pinterest": {
+      "name": "Pinterest Ads",
+      "api": "Pinterest API v5",
+      "current_version": "v5 (not re-verified this session)",
+      "sources": ["https://developers.pinterest.com/docs/api/v5/"],
+      "verified_at": null,
+      "stale_after_days": 0,
+      "status": "unverified"
+    },
+    "snapchat": {
+      "name": "Snapchat Ads",
+      "api": "Snap Marketing API (OAuth 2.0; scopes snapchat-marketing-api, snapchat-offline-conversions-api)",
+      "current_version": "Not re-verified this session",
+      "sources": ["https://developers.snap.com/api/marketing-api"],
+      "verified_at": null,
+      "stale_after_days": 0,
+      "status": "unverified"
+    },
+    "apple": {
+      "name": "Apple Ads (formerly Apple Search Ads)",
+      "api": "Apple Ads Platform API 1.0 (released Aug 2026, covers App Store + Apple Maps); Campaign Management API v5 legacy",
+      "current_version": "Platform API 1.0",
+      "deadlines": [{"what": "Campaign Management API v5 sunset", "when": "2027-01-26"}],
+      "known_changes": ["Lifetime budgets deprecated in CM API v5; use dailyBudgetAmount"],
+      "sources": [
+        "https://developer.apple.com/documentation/apple-ads-platform-api",
+        "https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-5"
+      ],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 45,
+      "status": "verified"
+    },
+    "x": {
+      "name": "X Ads",
+      "api": "X Ads API (version in URL path, e.g. /12/accounts)",
+      "current_version": "12 is the latest listed on docs.x.com versioning page (released 2022-10-27); confirm",
+      "sources": ["https://docs.x.com/x-ads-api/fundamentals/versioning"],
+      "verified_at": "2026-10-11",
+      "stale_after_days": 60,
+      "status": "verified-secondary"
+    }
+  }
+}

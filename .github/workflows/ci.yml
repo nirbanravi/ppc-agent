@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_evals:
+        description: "Run behaviour evals (uses ANTHROPIC_API_KEY, costs money)"
+        type: boolean
+        default: false
+
+jobs:
+  engine:
+    name: Engine tests (${{ matrix.os }}, py${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Compile
+        run: python -m compileall -q skills/ads/scripts skills/ads/hooks
+      - name: JSON files parse
+        run: |
+          for f in $(git ls-files '*.json'); do python -m json.tool "$f" > /dev/null || { echo "bad JSON: $f"; exit 1; }; done
+      - name: End-to-end test (stdlib validator)
+        run: sh tests/run_tests.sh
+      - name: End-to-end test (with jsonschema)
+        run: pip install jsonschema && sh tests/run_tests.sh
+
+  manifests:
+    name: Plugin manifests (claude plugin validate --strict)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude plugin validate --strict .
+      - run: claude plugin validate --strict .claude-plugin/plugin.json
+      - run: claude plugin validate --strict skills
+
+  evals:
+    name: Behaviour evals (manual)
+    if: github.event_name == 'workflow_dispatch' && inputs.run_evals
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude plugin eval . --runs 3 --trust-plugin --no-publish --threshold 0.67 --report eval-report.html
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report
+          path: eval-report.html

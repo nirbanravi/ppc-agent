@@ -1,0 +1,4 @@
+- [ ] `sh tests/run_tests.sh` passes
+- [ ] `claude plugin validate --strict .` passes
+- [ ] No real client data in examples
+- [ ] Safety model unchanged, or the change is explained here

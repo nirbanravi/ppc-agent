@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "spendsentry",
+  "version": "1.0.0",
+  "description": "Open-source AI PPC agent: audits, pacing, budget plans, experiments and client reports for Google Ads, Meta Ads and 10 more ad platforms. Read-only by default; account changes need your typed approval.",
+  "author": {
+    "name": "Ravi Nirban",
+    "url": "https://github.com/nirbanravi"
+  },
+  "homepage": "https://github.com/nirbanravi/ppc-agent",
+  "repository": "https://github.com/nirbanravi/ppc-agent",
+  "license": "MIT",
+  "keywords": [
+    "ppc",
+    "ppc-agent",
+    "ppc-audit",
+    "paid-media",
+    "google-ads",
+    "google-ads-audit",
+    "meta-ads",
+    "facebook-ads",
+    "linkedin-ads",
+    "tiktok-ads",
+    "amazon-ads",
+    "microsoft-ads",
+    "performance-marketing",
+    "ai-agent"
+  ],
+  "skills": [
+    "./skills/ads"
+  ]
+}

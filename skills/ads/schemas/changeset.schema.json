@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ads skill changeset",
+  "description": "A proposed set of exact account actions. Nothing here runs until gate passes and the human types APPROVE <code>.",
+  "type": "object",
+  "required": ["schema_version", "changeset_id", "created_at", "from_run", "client", "actions", "guardrails"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "changeset_id": {"type": "string", "pattern": "^cs-[0-9a-f]{10}$"},
+    "created_at": {"type": "string"},
+    "expires_at": {"type": "string"},
+    "from_run": {"type": "string"},
+    "client": {"type": "string"},
+    "guardrails": {
+      "type": "object",
+      "properties": {
+        "max_budget_change_pct": {"type": "number"},
+        "max_bid_change_pct": {"type": "number"},
+        "max_daily_spend_increase": {"type": ["number", "null"]},
+        "allow_delete": {"type": "boolean"},
+        "allow_enable_new": {"type": "boolean"},
+        "max_actions": {"type": "integer"},
+        "require_fresh_data_hours": {"type": "number"},
+        "allowed_accounts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["action_id", "platform", "account_id", "operation", "entity_type", "entity", "rationale", "evidence_finding_ids", "rollback"],
+        "properties": {
+          "action_id": {"type": "string"},
+          "platform": {"type": "string"},
+          "account_id": {"type": "string"},
+          "operation": {"enum": ["create", "update_budget", "update_bid", "update_status", "pause", "enable", "add_negative", "update_targeting", "update_creative", "delete", "other"]},
+          "entity_type": {"enum": ["campaign", "ad_group", "ad_set", "ad", "keyword", "negative_keyword", "audience", "asset", "budget", "other"]},
+          "entity": {"type": "string"},
+          "entity_id": {"type": ["string", "null"]},
+          "before": {"type": "object"},
+          "after": {"type": "object"},
+          "rationale": {"type": "string"},
+          "evidence_finding_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "expected_impact": {"type": "string"},
+          "risk": {"enum": ["low", "medium", "high"]},
+          "rollback": {"type": "object"},
+          "executor": {
+            "type": ["object", "null"],
+            "description": "Exact tool call that will perform this action. Its input hash is what the guard compares at execution time.",
+            "properties": {
+              "tool": {"type": "string"},
+              "input": {"type": "object"}
+            }
+          },
+          "manual_steps": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "gate": {"type": ["object", "null"]}
+  }
+}

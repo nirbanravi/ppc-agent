@@ -1,0 +1,21 @@
+{
+  "summary": {"headline": "Google conversions stopped recording on 7 Oct while spend continued — fix tracking before any budget moves. Separately, about 1.7–2.8 lakh INR/month is going to a zero-conversion competitor campaign and non-converting search terms."},
+  "findings": [
+    {"id": "A-1", "title": "Meta 'Results'-style reporting not reconciled with backend orders", "category": "measurement", "severity": "medium", "kind": "recommendation",
+     "platform": "meta", "entity": "account",
+     "description": "Meta ROAS (1.32) is platform-attributed. Without order/CRM data for the same window we cannot tell how much is incremental or double-counted with Google.",
+     "evidence": [{"source_id": "src2-meta-campaigns-sep", "selector": "all rows", "detail": "Purchases conversion value / Amount spent", "values": {"roas": 1.32}}],
+     "recommendation": "Export orders for 11 Sep–10 Oct and run a reconciliation before changing Meta budgets.",
+     "confidence": {"level": "medium", "score": 0.6, "reasons": ["no backend data supplied", "attribution windows unknown"]}}
+  ],
+  "experiments": [
+    {"id": "X-1", "hypothesis": "Cutting 'Competitor - Broad' and moving its budget to 'DSA - Catalog' lowers blended Google CPA without losing conversions", "platform": "google",
+     "primary_metric": "Google blended CPA", "guardrail_metrics": ["total conversions", "brand impression share"],
+     "design": "Pre/post with a 2-week holdout window after tracking is fixed; alternatively a campaign-level Google Ads experiment on DSA budget", "mde": "15% CPA change",
+     "estimated_duration_days": 21, "budget_needed": null, "decision_rule": "Keep if CPA falls ≥10% with conversions within −5%", "priority": "P1",
+     "based_on_findings": ["TRK002-1"], "confidence": {"level": "medium", "score": 0.55, "reasons": ["depends on tracking fix", "pre/post is weaker than a split test"]}}
+  ],
+  "questions": ["Was any tag, consent banner or site release deployed around 6–7 Oct 2026?", "Is the Video Views campaign judged on reach/views rather than purchases?"],
+  "assumptions": ["Conversion values are in INR and include tax"],
+  "docs": [{"url": "https://developers.google.com/google-ads/api/docs/sunset-dates", "title": "Google Ads API sunset dates", "verified_at": "2026-10-11", "used_for": "API version context"}]
+}

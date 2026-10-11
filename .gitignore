@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.ads/
+evals/results/
+eval-report.html
+.DS_Store

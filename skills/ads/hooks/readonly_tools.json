@@ -1,0 +1,4 @@
+{
+  "note": "Exact MCP tool names (mcp__server__tool) that are read-only even though their names look ambiguous. Edit by hand only; the guard blocks tools from editing this folder.",
+  "tools": []
+}

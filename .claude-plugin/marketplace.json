@@ -1,0 +1,16 @@
+{
+  "name": "spendsentry",
+  "description": "SpendSentry: open-source AI PPC agent for Claude Code.",
+  "owner": {
+    "name": "Ravi Nirban",
+    "url": "https://github.com/nirbanravi"
+  },
+  "plugins": [
+    {
+      "name": "spendsentry",
+      "source": "./",
+      "description": "Open-source AI PPC agent: audits, pacing, budget plans, experiments and client reports for Google Ads, Meta Ads and 10 more ad platforms. Read-only by default; account changes need your typed approval.",
+      "version": "1.0.0"
+    }
+  ]
+}
