@@ -2,7 +2,7 @@
 
 **SpendSentry is an open-source AI PPC agent for Claude Code that audits ad accounts, checks pacing, plans budgets and writes client reports across 12 ad platforms. It can't change an account unless you approve the exact change.**
 
-Built for paid media experts: PPC managers, paid social and performance marketing teams, and agencies. Created by [Ravi Nirban](https://github.com/nirbanravi).
+Built for paid media experts: PPC managers, paid social and performance marketing teams, and agencies. Created by [Ravi Nirban](https://github.com/nirbanravi). Website and guides: **https://nirbanravi.github.io/ppc-agent/**
 
 ![Sample audit report](docs/sample-report.png)
 *Report generated from the synthetic sample exports in `skills/ads/examples/exports/`, not a real client.*

@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Google Ads audit with Claude Code: free, evidence-backed | SpendSentry</title>
+<meta name="description" content="How to audit a Google Ads account with AI in minutes: which reports to export, what gets checked (tracking breaks, wasted search terms, budget limits) and how to read the findings."><link rel="canonical" href="https://nirbanravi.github.io/ppc-agent/google-ads-audit.html">
+<meta property="og:type" content="website"><meta property="og:title" content="AI Google Ads audit with Claude Code: free, evidence-backed | SpendSentry"><meta property="og:description" content="How to audit a Google Ads account with AI in minutes: which reports to export, what gets checked (tracking breaks, wasted search terms, budget limits) and how to read the findings.">
+<meta property="og:url" content="https://nirbanravi.github.io/ppc-agent/google-ads-audit.html"><meta property="og:image" content="https://nirbanravi.github.io/ppc-agent/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Ravi Nirban"><style>
+:root{--bg:#fbfaf7;--fg:#17191d;--muted:#5f6670;--line:#e3e0d8;--card:#fff;--accent:#2f5fd0;--accent-soft:#e8eefc;--ok:#067647;--bad:#b42318;--code:#f3f1ec}
+@media (prefers-color-scheme:dark){:root{--bg:#11161f;--fg:#eef1f5;--muted:#a3adbb;--line:#273142;--card:#161d29;--accent:#7fb2ff;--accent-soft:#1b2740;--ok:#47cd89;--bad:#f97066;--code:#1b2331}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header.top{border-bottom:1px solid var(--line)}nav{max-width:1040px;margin:0 auto;padding:14px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav .brand{font-weight:750;color:var(--fg);text-decoration:none;margin-right:auto;font-size:18px}nav a{text-decoration:none;font-size:15px}
+main{max-width:860px;margin:0 auto;padding:40px 16px 72px}h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0 0 16px}
+h2{font-size:26px;margin:48px 0 12px;letter-spacing:-.01em}h3{font-size:19px;margin:28px 0 6px}.lede{font-size:20px;color:var(--muted);margin:0 0 24px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+code{font:0.88em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);padding:1px 5px;border-radius:5px}pre code{background:none;padding:0}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;margin:4px 8px 4px 0}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h3{margin-top:0}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:15px;display:block;overflow-x:auto}th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted)}
+.ok{color:var(--ok);font-weight:650}.bad{color:var(--bad);font-weight:650}.note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:15px}
+img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:12px}details{border-bottom:1px solid var(--line);padding:12px 0}summary{font-weight:650;cursor:pointer}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer div{max-width:1040px;margin:0 auto;padding:22px 16px}.muted{color:var(--muted)}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I audit a Google Ads account with AI?", "acceptedAnswer": {"@type": "Answer", "text": "Export a campaign report segmented by day and a search terms report from Google Ads, then run /ads audit google ./exports in Claude Code with SpendSentry installed. You get scored findings with the rows that support each one."}}, {"@type": "Question", "name": "Which Google Ads reports does the audit need?", "acceptedAnswer": {"@type": "Answer", "text": "A campaign report by day with Cost, Impressions, Clicks, Conversions, Conversion value, Budget and Campaign status, plus a search terms report. Adding Search impression share and Search lost IS (budget/rank) unlocks the budget- and rank-limit checks."}}, {"@type": "Question", "name": "Does the AI audit replace a PPC specialist?", "acceptedAnswer": {"@type": "Answer", "text": "No. The automated checks catch measurable problems fast, and Claude adds judgement on top, but every finding comes with evidence so a specialist can confirm or reject it quickly."}}, {"@type": "Question", "name": "Is it safe to connect my Google Ads account?", "acceptedAnswer": {"@type": "Answer", "text": "Use exports or read-only access. Google's official Google Ads MCP server is read-only, and SpendSentry blocks write tools unless you approve each exact change."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SpendSentry", "item": "https://nirbanravi.github.io/ppc-agent/"}, {"@type": "ListItem", "position": 2, "name": "Google Ads audit", "item": "https://nirbanravi.github.io/ppc-agent/google-ads-audit.html"}]}</script></head><body>
+<header class="top"><nav><a class="brand" href="./">🛡 SpendSentry</a><a href="google-ads-audit.html">Google Ads audit</a><a href="meta-ads-audit.html">Meta Ads audit</a><a href="ai-agent-ad-account-safety.html">AI agent safety</a><a href="compare.html">Compare</a><a href="https://github.com/nirbanravi/ppc-agent">GitHub</a></nav></header>
+<main>
+<h1>AI Google Ads audit with Claude Code</h1>
+<p class="lede">Run an evidence-backed Google Ads audit in minutes: tracking breaks, wasted spend, search-term waste, budget limits and CPA/ROAS against target, with the exact rows behind every finding.</p>
+
+<h2>1. Export two reports</h2>
+<table><tr><th>Report</th><th>Columns</th><th>Segment</th></tr>
+<tr><td>Campaigns</td><td>Campaign, Campaign status, Budget, Cost, Impr., Clicks, Conversions, Conv. value, Search impr. share, Search lost IS (budget), Search lost IS (rank)</td><td>Day, last 30–90 days</td></tr>
+<tr><td>Search terms</td><td>Search term, Match type, Campaign, Ad group, Cost, Clicks, Impr., Conversions</td><td>None</td></tr></table>
+<p class="muted">The default Google Ads download (UTF-16, with report title rows and a Total row) works as-is.</p>
+
+<h2>2. Run the audit</h2>
+<pre><code>/ads audit google ./exports</code></pre>
+<p>On first run you set CPA/ROAS targets and monthly budgets. The audit is read-only.</p>
+
+<h2>3. What it checks automatically</h2>
+<table><tr><th>Check</th><th>What it catches</th></tr>
+<tr><td>Tracking break</td><td>Conversions drop to zero for consecutive days while spend continues</td></tr>
+<tr><td>Zero-conversion spend</td><td>Campaigns spending above a waste threshold with no conversions; awareness campaigns are flagged separately</td></tr>
+<tr><td>CPA / ROAS vs target</td><td>Blended and campaign-level performance against your targets</td></tr>
+<tr><td>Budget-limited</td><td>Campaigns losing 20%+ impression share to budget while converting at or below account CPA</td></tr>
+<tr><td>Rank-limited</td><td>Campaigns losing 40%+ impression share to ad rank</td></tr>
+<tr><td>Search-term waste</td><td>Terms that spent at least one CPA with no conversions, ranked by spend</td></tr>
+<tr><td>CTR outliers, concentration, pacing</td><td>Campaigns far below sibling CTR, one campaign dominating spend, month-to-date pacing</td></tr></table>
+<p>Claude then works through a Google-specific checklist: primary vs secondary conversion actions, duplicate conversions, bidding vs data volume, brand cannibalisation in Performance Max, location and network settings. Every judgement finding still has to cite data.</p>
+
+<h2>4. Read the report</h2>
+<p>Each finding shows its severity, the evidence rows, an impact range with the method used, and a confidence score with reasons. Missing columns and stale exports are listed at the top, not hidden.</p>
+<img src="assets/sample-report.png" alt="Google Ads audit report with a critical tracking break finding" loading="lazy" width="1100">
+
+<h2>Install</h2><pre><code>claude plugin marketplace add nirbanravi/ppc-agent
+claude plugin install spendsentry@spendsentry</code></pre>
+<p class="muted">Run these in a terminal with <a href="https://code.claude.com/docs/en/overview">Claude Code</a> installed. Then open a project folder, start <code>claude</code>, and type <code>/ads audit google ./exports</code>. Python 3.9+ is the only other requirement.</p>
+<h2>FAQ</h2><details><summary>How do I audit a Google Ads account with AI?</summary><p>Export a campaign report segmented by day and a search terms report from Google Ads, then run /ads audit google ./exports in Claude Code with SpendSentry installed. You get scored findings with the rows that support each one.</p></details><details><summary>Which Google Ads reports does the audit need?</summary><p>A campaign report by day with Cost, Impressions, Clicks, Conversions, Conversion value, Budget and Campaign status, plus a search terms report. Adding Search impression share and Search lost IS (budget/rank) unlocks the budget- and rank-limit checks.</p></details><details><summary>Does the AI audit replace a PPC specialist?</summary><p>No. The automated checks catch measurable problems fast, and Claude adds judgement on top, but every finding comes with evidence so a specialist can confirm or reject it quickly.</p></details><details><summary>Is it safe to connect my Google Ads account?</summary><p>Use exports or read-only access. Google&#x27;s official Google Ads MCP server is read-only, and SpendSentry blocks write tools unless you approve each exact change.</p></details>
+</main>
+<footer><div>SpendSentry is open source (MIT), created by <a href="https://github.com/nirbanravi">Ravi Nirban</a>. Not affiliated with Google, Meta, Anthropic or any ad platform. Page updated 2026-10-11.</div></footer>
+</body></html>

@@ -1,0 +1,18 @@
+# SpendSentry
+
+> SpendSentry is an open-source AI PPC agent for Claude Code that audits ad accounts, checks budget pacing, plans budgets and writes client reports across 12 ad platforms, and cannot change an account unless you approve the exact change.
+
+## Pages
+- [SpendSentry: open-source AI PPC agent for Google Ads, Meta Ads and 10 more platforms](https://nirbanravi.github.io/ppc-agent/): Free, open-source AI PPC agent for Claude Code. Evidence-backed Google Ads and Meta Ads audits, pacing and client reports across 12 ad platforms, with approval-gated account changes.
+- [AI Google Ads audit with Claude Code: free, evidence-backed](https://nirbanravi.github.io/ppc-agent/google-ads-audit.html): How to audit a Google Ads account with AI in minutes: which reports to export, what gets checked (tracking breaks, wasted search terms, budget limits) and how to read the findings.
+- [AI Meta Ads audit (Facebook & Instagram) with Claude Code](https://nirbanravi.github.io/ppc-agent/meta-ads-audit.html): Audit Meta Ads with AI: what to export from Ads Manager, the checks for CPA, ROAS, frequency and tracking, and why to avoid the Results column.
+- [How to stop AI agents from changing your ad account](https://nirbanravi.github.io/ppc-agent/ai-agent-ad-account-safety.html): AI agents can edit Google, Meta and Amazon ad accounts through MCP. See how an enforced approval gate blocks every change you didn't approve.
+- [SpendSentry vs claude-ads vs Adspirer vs Optmyzr: AI PPC tools compared](https://nirbanravi.github.io/ppc-agent/compare.html): An honest comparison of AI PPC tools for paid media teams: open-source Claude Code plugins vs hosted platforms, and where your data goes.
+
+## Install
+```
+claude plugin marketplace add nirbanravi/ppc-agent
+claude plugin install spendsentry@spendsentry
+```
+
+Source: https://github.com/nirbanravi/ppc-agent (MIT). Author: Ravi Nirban.

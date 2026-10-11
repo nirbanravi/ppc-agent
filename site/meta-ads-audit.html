@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Meta Ads audit (Facebook &amp; Instagram) with Claude Code | SpendSentry</title>
+<meta name="description" content="Audit Meta Ads with AI: what to export from Ads Manager, the checks for CPA, ROAS, frequency and tracking, and why to avoid the Results column."><link rel="canonical" href="https://nirbanravi.github.io/ppc-agent/meta-ads-audit.html">
+<meta property="og:type" content="website"><meta property="og:title" content="AI Meta Ads audit (Facebook &amp; Instagram) with Claude Code | SpendSentry"><meta property="og:description" content="Audit Meta Ads with AI: what to export from Ads Manager, the checks for CPA, ROAS, frequency and tracking, and why to avoid the Results column.">
+<meta property="og:url" content="https://nirbanravi.github.io/ppc-agent/meta-ads-audit.html"><meta property="og:image" content="https://nirbanravi.github.io/ppc-agent/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Ravi Nirban"><style>
+:root{--bg:#fbfaf7;--fg:#17191d;--muted:#5f6670;--line:#e3e0d8;--card:#fff;--accent:#2f5fd0;--accent-soft:#e8eefc;--ok:#067647;--bad:#b42318;--code:#f3f1ec}
+@media (prefers-color-scheme:dark){:root{--bg:#11161f;--fg:#eef1f5;--muted:#a3adbb;--line:#273142;--card:#161d29;--accent:#7fb2ff;--accent-soft:#1b2740;--ok:#47cd89;--bad:#f97066;--code:#1b2331}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header.top{border-bottom:1px solid var(--line)}nav{max-width:1040px;margin:0 auto;padding:14px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav .brand{font-weight:750;color:var(--fg);text-decoration:none;margin-right:auto;font-size:18px}nav a{text-decoration:none;font-size:15px}
+main{max-width:860px;margin:0 auto;padding:40px 16px 72px}h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0 0 16px}
+h2{font-size:26px;margin:48px 0 12px;letter-spacing:-.01em}h3{font-size:19px;margin:28px 0 6px}.lede{font-size:20px;color:var(--muted);margin:0 0 24px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+code{font:0.88em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);padding:1px 5px;border-radius:5px}pre code{background:none;padding:0}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;margin:4px 8px 4px 0}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h3{margin-top:0}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:15px;display:block;overflow-x:auto}th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted)}
+.ok{color:var(--ok);font-weight:650}.bad{color:var(--bad);font-weight:650}.note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:15px}
+img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:12px}details{border-bottom:1px solid var(--line);padding:12px 0}summary{font-weight:650;cursor:pointer}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer div{max-width:1040px;margin:0 auto;padding:22px 16px}.muted{color:var(--muted)}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I audit Meta Ads with AI?", "acceptedAnswer": {"@type": "Answer", "text": "Export a campaign and ad set report from Ads Manager with spend, impressions, reach, frequency, link clicks, a named conversion event and its value (ideally broken down by day), then run /ads audit meta ./exports in Claude Code with SpendSentry."}}, {"@type": "Question", "name": "Why should I avoid the 'Results' column?", "acceptedAnswer": {"@type": "Answer", "text": "In Meta Ads Manager, 'Results' counts whatever event each ad set optimises for, so it can mix purchases, leads and other events. SpendSentry warns when it sees it. Export a named event such as Purchases or Leads instead."}}, {"@type": "Question", "name": "Can SpendSentry change my Meta campaigns?", "acceptedAnswer": {"@type": "Answer", "text": "Not without your approval. Meta's official Ads MCP server can create and edit campaigns, so SpendSentry treats every write tool as gated: it runs only when it matches a change you approved with a one-time code."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SpendSentry", "item": "https://nirbanravi.github.io/ppc-agent/"}, {"@type": "ListItem", "position": 2, "name": "Meta Ads audit", "item": "https://nirbanravi.github.io/ppc-agent/meta-ads-audit.html"}]}</script></head><body>
+<header class="top"><nav><a class="brand" href="./">🛡 SpendSentry</a><a href="google-ads-audit.html">Google Ads audit</a><a href="meta-ads-audit.html">Meta Ads audit</a><a href="ai-agent-ad-account-safety.html">AI agent safety</a><a href="compare.html">Compare</a><a href="https://github.com/nirbanravi/ppc-agent">GitHub</a></nav></header>
+<main>
+<h1>AI Meta Ads audit (Facebook &amp; Instagram) with Claude Code</h1>
+<p class="lede">Audit Meta Ads from an export: CPA and ROAS against target, frequency and creative fatigue, zero-conversion ad sets and tracking gaps, each with the evidence behind it.</p>
+
+<h2>What to export from Ads Manager</h2>
+<ul>
+<li>Campaign and ad set level: Amount spent, Impressions, Reach, Frequency, Link clicks, a <strong>named</strong> conversion event (Purchases, Leads) and its conversion value.</li>
+<li>Break it down by <strong>Day</strong>. Without daily rows, the tracking-break and trend checks cannot run, and the report will say so.</li>
+<li>Optional: an ad-level export for creative fatigue.</li></ul>
+
+<h2>What the audit checks</h2>
+<table><tr><th>Area</th><th>Checks</th></tr>
+<tr><td>Performance</td><td>Blended and campaign CPA/ROAS against target; campaigns at 2× the account CPA with a meaningful spend share</td></tr>
+<tr><td>Saturation</td><td>Average frequency at 5+, alongside CPA trend</td></tr>
+<tr><td>Waste</td><td>Spend with no conversions; awareness and video-view campaigns are judged on their own goal</td></tr>
+<tr><td>Measurement</td><td>Conversions without value, 'Results' column warnings, Pixel/CAPI deduplication and attribution-setting questions for the analyst pass</td></tr></table>
+
+<div class="note">Meta's Marketing API changes often: v26.0 shipped in July 2026, and several deprecations reach all versions on 27 October 2026. SpendSentry keeps a dated registry of platform rules and re-checks official docs when an entry is stale.</div>
+
+<h2>Run it</h2>
+<pre><code>/ads audit meta ./exports</code></pre>
+<h2>Install</h2><pre><code>claude plugin marketplace add nirbanravi/ppc-agent
+claude plugin install spendsentry@spendsentry</code></pre>
+<p class="muted">Run these in a terminal with <a href="https://code.claude.com/docs/en/overview">Claude Code</a> installed. Then open a project folder, start <code>claude</code>, and type <code>/ads audit google ./exports</code>. Python 3.9+ is the only other requirement.</p>
+<h2>FAQ</h2><details><summary>How do I audit Meta Ads with AI?</summary><p>Export a campaign and ad set report from Ads Manager with spend, impressions, reach, frequency, link clicks, a named conversion event and its value (ideally broken down by day), then run /ads audit meta ./exports in Claude Code with SpendSentry.</p></details><details><summary>Why should I avoid the &#x27;Results&#x27; column?</summary><p>In Meta Ads Manager, &#x27;Results&#x27; counts whatever event each ad set optimises for, so it can mix purchases, leads and other events. SpendSentry warns when it sees it. Export a named event such as Purchases or Leads instead.</p></details><details><summary>Can SpendSentry change my Meta campaigns?</summary><p>Not without your approval. Meta&#x27;s official Ads MCP server can create and edit campaigns, so SpendSentry treats every write tool as gated: it runs only when it matches a change you approved with a one-time code.</p></details>
+</main>
+<footer><div>SpendSentry is open source (MIT), created by <a href="https://github.com/nirbanravi">Ravi Nirban</a>. Not affiliated with Google, Meta, Anthropic or any ad platform. Page updated 2026-10-11.</div></footer>
+</body></html>
